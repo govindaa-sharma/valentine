@@ -92,13 +92,21 @@
 
         function moveNo() {
             let noBtn = document.getElementById("no-btn");
-            let maxX = window.innerWidth - noBtn.clientWidth - 10;
-            let maxY = window.innerHeight - noBtn.clientHeight - 10;
-            let newX = Math.random() * maxX;
-            let newY = Math.random() * maxY;
 
-            noBtn.style.left = `${newX}px`;
-            noBtn.style.top = `${newY}px`;
+            // Function to move the "No" button continuously
+            function continuousMove() {
+                let maxX = window.innerWidth - noBtn.clientWidth - 10;
+                let maxY = window.innerHeight - noBtn.clientHeight - 10;
+                let newX = Math.random() * maxX;
+                let newY = Math.random() * maxY;
+
+                noBtn.style.left = `${newX}px`;
+                noBtn.style.top = `${newY}px`;
+            }
+
+            // Initially move the button and then keep moving it every 100ms
+            continuousMove();
+            setInterval(continuousMove, 100);
         }
     </script>
 
